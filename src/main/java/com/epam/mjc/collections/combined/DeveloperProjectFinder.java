@@ -25,22 +25,15 @@ public class DeveloperProjectFinder {
             });
         });
         System.out.println(developerProjects);
-        Collections.sort(developerProjects, new ProjectComparator());
+        Collections.sort(developerProjects, new ProjectComparator());// List.sort  ??? new
         System.out.println(developerProjects);
         return developerProjects;
     }
 
-    class ProjectComparator implements Comparator<String> {
+    class ProjectComparator implements Comparator<String> { // static ???
         @Override
         public int compare(String o1, String o2) {
-//            return o1.length() > o2.length() ? 1 : o1.length() == o2.length() ? 1 : 0;
-//            return o1.length() > o2.length() ? -1 : 0;
-//            return o1.length() > o2.length() ? -1 : 0; // works
-//            return o1.length() > o2.length() ? -1 : o1.compareTo(o2) > 0 ? -1 : 0; // works
             return o1.length() > o2.length() ? -1 : o1.length() == o2.length() ? (o1.compareTo(o2) > 0 ? -1 : 0) : 0; // works
-//            if (o1.compareTo(o2) > 0)
-//            return 1; //
-//            return 0;
         }
     }
 
